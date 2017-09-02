@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Untitled Document</title></head><body><h2>Druwiki Has been taken offline</h2>                                                  <div class="clear-block">
+            <div id="node-1" class="node">
+
+
+
+  
+<div class="content clear-block">
+    <h1 id="Aboutthissite">About this site</h1>
+<p>
+
+ This site is an attempt to make Drupal work more like a wiki.  Some of this is done by adding modules which add wiki-like functions (like using double brackets to add a <a href="http://johnthomson.org/druwiki/?q=freelinking/New%2520Link" class="freelinking">New Link</a>), but a bit of the design is philosophical as well. I'll admit that some cues were taken from one of the best wikis out there--<a href="http://pbwiki.com/" target="_blank">PBWiki</a>.
+</p>
+<p>The site was taken offline in 2010 because of a failed update and because it was only current for Drupal 5.  I've recreated most of the text from cached copies and an important screenshot appears below. Hopefully the general ideas will help someone.</p>
+<h2 id="Whatsphilosophicalaboutit">What's philosophical about it?<br></h2>
+<p>
+First and foremost, a taxomomy is added to create folders. Wikis traditionally are created and structured like websites where pages are created and interlinked. This is foreign to most who have not created a website, yet the idea of folders makes sense because that's how we organize documents in our operating system. It also takes care of the orphan page problem.
+</p>
+<p>
+Another philosophical change is limiting the page to one "post" at a time, unless it is a search or tag/folder view. Drupal makes a great blogging platform because it can handle timed posts in so many ways, but a wiki works more on a single page basis. One page, one empty edit box.
+</p>
+
+<h2 id="Whatstechnicallygoingon"> </h2>
+</div>
+<h2>Druwiki how-to</h2>                                                  <div class="clear-block">
+            <div id="node-5" class="node">
+
+
+
+  
+<div class="content clear-block">
+
+    <h2 id="Modulesused">Modules used</h2>
+<ul><li> <a href="http://drupal.org/project/freelinking">Freelinking</a> (allows pages to quickly be created "on the fly")</li>
+<li> <a href="http://drupal.org/project/diff">Diff</a> (tracks revisions)</li>
+<li> <a href="http://drupal.org/project/pathauto">Pathauto</a> (makes urls nice &amp; helps views)</li>
+
+<li> <a href="http://drupal.org/project/wikitools">Wikitools</a> (nice wiki-ish stuff like automatic page creation on [[]] linking)</li>
+<li> <a href="http://drupal.org/project/tableofcontents">Table of contents</a> (creates a table of contents w/ the "&lt;!--tableofcontents--&gt;" tag; may not work w/ tinymce)</li>
+<li> <a href="http://drupal.org/project/talk">Talk</a> (puts comments underneath a separate tab)</li>
+
+<li> <a href="http://drupal.org/project/tagadelic">Tagadellic</a> (creates a tag "cloud")</li>
+<li> <a href="http://drupal.org/project/taxonomy_list">Taxonomy list</a> (creates a tag/folder list)</li>
+<li><a href="http://drupal.org/project/taxonomy_redirect">Taxonomy redirect</a> (redirects taxonomy links for different views)</li>
+<li> <a href="http://drupal.org/project/wysiwyg">WYSIWYG API</a> (for the nice editor, here <a href="http://tinymce.moxiecode.com/">tinymce</a>)</li>
+
+<li><a href="http://drupal.org/project/token">Token</a> (for a dependency)</li>
+<li> <a href="http://drupal.org/project/views">Views</a> (for folder lists and other ways of viewing data)
+  </li>
+</ul><h2 id="Configuration">Configuration</h2>
+<ol><li>Creat a new content type, remembering to enable revisions
+<ol><li>For Comments, use the Talk module to be like mediawiki</li>
+
+</ol></li>
+<li>Organizion and navigation are handled by taxonomy,
+<ol><li>either loose/tagging or fixed list of "folders" (use taxonomy list for block and views/taxonomy redirect for page lists)</li>
+<li>a required fixed list can prevent orphan pages!</li>
+</ol></li>
+<li>Enable file uploads, if desired; possibly use <a href="http://drupal.org/project/imce">IMCE</a></li>
+<li> Freelinking: set the default wiki content type</li>
+<li>Input formats:
+
+<ol><li>Enable filters (table of contents, freelinking)</li>
+<li>Order can mess things up--change things here if they aren't working</li>
+</ol></li>
+<li>Pathauto: add a path if desired, otherwise set "[title-raw]" for the wiki node type; be sure to leave old aliases intact</li>
+<li>Custom block (code below)</li>
+<li>Site information: Set homepage to be a single home node
+  </li>
+</ol><h2 id="Whatsmoretodo">What's more to do</h2>
+<p> Take a look at <a href="http://drupal.org/project/outline_designer">outline designer</a> for easier organization/allow user creation of folders<br><a href="http://drupal.org/project/linktocontent">Link to content</a> (appears to be dead<br>
+  Multiauthor issues/views<br>
+Update notifications/RSS<br>
+Better theming<br>
+Look at personal wiki pages</p>
+<h2 id="Convertingexamplemediawiki">Converting example: mediawiki</h2>
+<p> <a href="http://meta.wikimedia.org/wiki/Help:Export">Export from mediawiki</a>, and use <a href="http://www.drupal.org/project/feedapi">feedapi</a> &amp; <a href="http://drupal.org/project/feedapi_mapper">feed api mapper</a> for import</p>
+
+<h2 id="Cleanuphtmlpurifier">Cleanup: html purifier</h2>
+<p>Editors like TinyMCE don't do well with code pasted from Microsoft Word. There are a number of ways to clean things up, but I've had good luck with a project/module called<a href="http://drupal.org/project/htmlpurifier"> html Purifier</a>. Essentially, it allows you to set which html tags will be allowed in your pages (users will get an error when using unauthorized tags). Here's my list of allowed tags:</p>
+<pre>a[href],em,i,b,u,strong,cite,code,ul,ol,li,dl,dt,dd,a,p,h1,h2,h3,h4,h5,h6,hr,br,dl,dt,dd,table,tr,td,blockquote,pre,embed,object,span[text-decoration|text-align]</pre><p>...and forbidden attributes</p>
+<pre>span@style,p@style</pre><h2 id="CustomBlock">Custom Block</h2>
+<pre>&lt;?php
+   if (arg(0) == 'node' &amp;&amp; is_numeric(arg(1))) $nodeid = arg(1);
+   ?&gt;</pre><pre>&lt;table width="100%" border="0" id="addedit"&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;h2&gt;&lt;a href="/druwiki/?q=node/add/page"&gt;Create new page&lt;/a&gt; &lt;/h2&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+
+&lt;td&gt;&lt;h2&gt;&lt;a href="/druwiki/?q=node/&lt;?php print($nodeid)?&gt;/edit"&gt;Edit this page&lt;/a&gt;&lt;/h2&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</pre>  </div>
+<p>Screenshot of the folder list:<br><img src="http://johnthomson.org/druwiki/druwiki.png" width="861" height="277" alt="Folder  	 Title  	 Last updatedsort icon  	 Original Author
+Completed Work 	Druwiki Home 	06/05/2009 - 19:38 	admin
+Search this site:
+Folders
+Completed Work
+
+    * rss feed for Completed Work
+
+Unfiled
+
+    * rss feed for Unfiled
+
+Tags
+funny philosophy Prueba setup testing
+"></p></div></div></div></div></body></html>
