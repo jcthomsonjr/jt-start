@@ -8,23 +8,26 @@ body, html{
     margin:0;
 }
 #cover {
-	background-image: url("assets/headshot-beard.jpeg");
-	min-height: 100vh;
-	background-repeat: no-repeat;
-	background-attachment: scroll;
-	background-position: center top;
-	background-size: cover;
-}
-#bio {	
+	width: 100%;
+	height: auto;
+	display: block;
+	max-height: 100vh;
+	object-fit: cover;
+	object-position: center top;
 }
 h2 {
 	font-size: 20px !important;
 }
+/* tablet */
 @media only screen and (max-width: 975px) {
 	#cover {
-		height: 85vw;
-		max-height: 520px;
-		background-position: center 20%;
+		max-height: 420px;
+	}
+}
+/* phone */
+@media only screen and (max-width: 600px) {
+	#cover {
+		max-height: 280px;
 	}
 }
 </style>
@@ -34,7 +37,6 @@ h2 {
     <title>John Thomson</title>
     <!-- Bootstrap -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -46,7 +48,7 @@ h2 {
   <div class="container-fluid">
 	<div class="row">
 	  <div class="col-md-8">
-        <div id="cover"></div>
+        <img id="cover" src="assets/headshot-beard.jpeg" class="img-responsive" alt="John Thomson">
 		</div>
 		<div class="col-md-4">
 <div id="bio" class="h-card">
@@ -65,7 +67,6 @@ h2 {
   
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-
 	<!-- Include all compiled plugins (below), or include individual files as needed --> 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
@@ -73,10 +74,8 @@ h2 {
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-10953651-1', 'auto');
   ga('send', 'pageview');
-
 </script>
   </body>
 </html>
