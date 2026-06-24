@@ -2,35 +2,34 @@
 <html lang="en">
   <head>
   <style>
-body, html{
-    height:100%;
-    padding:0;
-    margin:0;
+body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
 }
+
 #cover {
-	background-image: url("assets/headshot-beard.jpeg");
-	min-height: 100%;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: left;
-	background-size: cover;
-	padding-top: 100%;
+    background-image: url("assets/headshot-beard.jpeg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: scroll;
+    min-height: 100vh;
 }
-#bio {	
+
+#bio {
 }
+
 h2 {
-	font-size: 20px !important;
+    font-size: 20px !important;
 }
+
 @media only screen and (max-width: 975px) {
-	#cover {
-		height: 600px;
-		margin-top: -180px;
-		background-attachment: scroll !important;
-	}
-	#cover img {
-		width: 100%;
-		height: auto;
-	}
+    #cover {
+        min-height: 60vw;   /* scales proportionally with screen width */
+        max-height: 500px;  /* caps it on mid-size tablets */
+        background-position: top center;
+    }
 }
 </style>
     <meta charset="UTF-8">
